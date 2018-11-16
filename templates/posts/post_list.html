@@ -18,6 +18,20 @@
         {{ comment.content }} {{ comment.author }}
         <p>-----------------------------------</p>
     {% endfor %}
+    댓글:
+    <form action="{% url 'comment-create' pk=post.id %}" method="post">{% csrf_token %}
+        <textarea name="content" id="" cols="30" rows="2"></textarea>
+        <input type="submit" value="댓글작성">
+    </form>
+    후원하기 금액:
+    <form action="{% url 'pay-view' pk=post.id %}" method="post">{% csrf_token %}
+        <input type="text" name="price" value="0">
+        <input type="submit" value="후원하기">
+    </form>
+
+    <p>-----------------------------------</p>
+
+    <a href="{% url 'post-create' %}">글 쓰기</a><br>
 
 {% endfor %}
 

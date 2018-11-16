@@ -42,7 +42,7 @@ class Comment(models.Model):
         # 수정일 updated_at
     """
     post = models.ForeignKey('Post', on_delete=models.CASCADE)
-    content = models.TextField(max_length=50)
+    content = models.TextField(max_length=100)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     password = models.CharField(max_length=10)
     created_at = models.DateTimeField(auto_now_add=True)

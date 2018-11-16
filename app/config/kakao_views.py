@@ -2,7 +2,7 @@ import json
 import os
 
 import requests
-from django.http import HttpResponse
+from django.shortcuts import redirect
 
 from config.settings import SECRET_DIR
 
@@ -27,6 +27,4 @@ def kakao_view(request):
     response = requests.post(
         'https://kapi.kakao.com/v1/payment/approve', headers=headers, params=params)
 
-    print(response)
-
-    return HttpResponse(response.text)
+    return redirect('post-list')
