@@ -16,7 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from .kakao_views import kakao_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', include('post.urls')),
+    path('', kakao_view),
+    path('pay/', include('pay.urls')),
 ]

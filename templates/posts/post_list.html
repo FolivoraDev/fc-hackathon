@@ -9,7 +9,16 @@
 </head>
 <body>
 {% for post in post_list %}
-    {{ post.title }}
+    {{ post.title }} <br>
+    {{ post.author }} <br>
+    {{ post.content }} <br>
+    {{ post.created_at }} <br>
+    <p>-----------------------------------</p>
+    {% for comment in post.comment_set.all %}
+        {{ comment.content }} {{ comment.author }}
+        <p>-----------------------------------</p>
+    {% endfor %}
+
 {% endfor %}
 
 </body>
